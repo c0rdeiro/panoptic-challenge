@@ -10,9 +10,11 @@ export const GET_OLDEST_PANOPTIC_POOLS_QUERY = gql`
             feeTier
             token0 {
                 symbol
+                decimals
             }
             token1 {
                 symbol
+                decimals
             }
             underlyingPool {
                 tick

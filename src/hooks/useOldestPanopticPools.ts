@@ -17,11 +17,15 @@ export default function useOldestPanopticPools() {
 
     const poolsData: PanopticPool[] = data.panopticPools.map((pool) => ({
         feeTier: Number(pool.feeTier),
-        token0Symbol: pool.token0.symbol,
-        token1Symbol: pool.token1.symbol,
-        price: getPriceByTick(
-            pool.underlyingPool.tick ? Number(pool.underlyingPool.tick) : 0
-        ),
+        token0: { symbol: pool.token0.symbol, decimals: pool.token0.decimals },
+        token1: { symbol: pool.token1.symbol, decimals: pool.token1.decimals },
+        price: Number(pool.underlyingPool.tick)
+            ? getPriceByTick(
+                  Number(pool.underlyingPool.tick),
+                  pool.token0.decimals,
+                  pool.token1.decimals
+              )
+            : 0,
         isV4Pool: pool.underlyingPool.isV4Pool ?? false,
     }))
     console.log({ data: data.panopticPools, poolsData })

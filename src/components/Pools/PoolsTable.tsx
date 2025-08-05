@@ -11,7 +11,7 @@ const PoolsTable: React.FC = () => {
     }
 
     return (
-        <div className="h-full w-full rounded-lg border border-gray-200 bg-white shadow-sm">
+        <div className="h-full w-full max-w-lg rounded-lg border border-gray-200 bg-white shadow-sm">
             {/* Scrollable container with max height */}
             <div className="h-full max-h-[90dvh] overflow-y-auto">
                 <table className="w-full">
@@ -30,9 +30,11 @@ const PoolsTable: React.FC = () => {
                                 key={index}
                                 className="even:bg-gray-25 transition-colors duration-150 hover:bg-gray-50 [&>td]:px-4 [&>td]:py-4 [&>td]:text-sm [&>td]:font-medium [&>td]:text-gray-900"
                             >
-                                <td>{pool.token0Symbol}</td>
-                                <td>{pool.token1Symbol}</td>
-                                <td>{formatFeeTier(pool.feeTier)}</td>
+                                <td>{pool.token0.symbol}</td>
+                                <td>{pool.token1.symbol}</td>
+                                <td className="text-center">
+                                    {formatFeeTier(pool.feeTier)}
+                                </td>
                                 <td className="text-right">
                                     {pool.price.toFixed(6)}
                                 </td>
