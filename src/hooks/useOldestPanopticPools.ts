@@ -7,12 +7,12 @@ type OldestPanopticPoolsQueryReturnType = {
     panopticPools: PanopticPoolRawData[]
 }
 
-export default function useOldestPanopticPools(): PanopticPool[] {
-    const { data } = useQuery<OldestPanopticPoolsQueryReturnType>(
+export default function useOldestPanopticPools() {
+    const { data, loading } = useQuery<OldestPanopticPoolsQueryReturnType>(
         GET_OLDEST_PANOPTIC_POOLS_QUERY
     )
     if (!data) {
-        return []
+        return { poolsData: [], loading }
     }
 
     const poolsData: PanopticPool[] = data.panopticPools.map((pool) => ({
@@ -26,5 +26,5 @@ export default function useOldestPanopticPools(): PanopticPool[] {
     }))
     console.log({ data: data.panopticPools, poolsData })
 
-    return poolsData
+    return { poolsData, loading }
 }
