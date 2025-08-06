@@ -10,6 +10,7 @@ Thank you for the opportunity to complete this interview task. This project is a
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
     - [Running Locally](#running-locally)
+- [Demo Screenshots](#demo-screenshots)
 
 ## Features
 
@@ -85,3 +86,9 @@ Ensure you have the following installed:
     ```
 
 2.  Open your browser and navigate to the address displayed in your terminal (usually `http://localhost:3000`).
+
+## Demo Screenshots
+
+![Markets List](/assets/sc00.png 'Markets List')
+![Specific Pool](/assets/sc01.png 'Specific Pool')
+![Deposit Collateral](/assets/sc02.png 'Deposit Collateral')
