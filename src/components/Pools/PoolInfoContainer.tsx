@@ -1,9 +1,10 @@
 import usePanopticPoolInfo from '@/hooks/usePanopticPoolInfo'
 import { formatFeeTier } from '@/utils/formatFeeTier'
-import formatUSD from '@/utils/formatUsd'
 import calculatePriceByTick from '@/lib/calculatePriceByTick'
 import LoadingSpin from '../shared/LoadingSpin'
 import calculatePanopticMarketCap from '@/lib/calculateMarketCap'
+import PositionsTable from '../Positions/PositionsTable'
+import { formatUSD } from '@/utils/formatNumber'
 
 type PoolInfoContainerProps = {
     poolId: string
@@ -50,6 +51,7 @@ const PoolInfoContainer: React.FC<PoolInfoContainerProps> = ({ poolId }) => {
         collateral1,
         totalVolumeUSD,
         commissionsUSD,
+        chunks,
     } = poolInfo
 
     return (
@@ -73,7 +75,7 @@ const PoolInfoContainer: React.FC<PoolInfoContainerProps> = ({ poolId }) => {
                 </p>
             </div>
 
-            <div className="flex flex-row justify-evenly gap-5 rounded bg-gray-100 p-4 md:items-center">
+            <div className="flex flex-row justify-evenly gap-5 rounded bg-gray-50 p-4 md:items-center">
                 <div className="flex flex-col items-center">
                     <p className="text-sm text-gray-600">TVL (USD)</p>
                     <p className="text-2xl font-bold text-black">
@@ -106,6 +108,15 @@ const PoolInfoContainer: React.FC<PoolInfoContainerProps> = ({ poolId }) => {
                         {formatUSD(underlyingPool.totalValueLockedUSD)}
                     </p>
                 </div>
+            </div>
+            <div className="flex flex-col gap-4">
+                <h3 className="text-xl font-semibold">Available Positions</h3>
+                <PositionsTable
+                    chunks={chunks}
+                    currentTick={Number(underlyingPool.tick)}
+                    token0={token0}
+                    token1={token1}
+                />
             </div>
         </div>
     )

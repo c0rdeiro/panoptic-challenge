@@ -60,6 +60,7 @@ export type Chunk = {
     netLiquidity: string
     shortLiquidity: string
     longLiquidity: string
+    totalLiquidity: string
     shortCounts: string
     longCounts: string
 }

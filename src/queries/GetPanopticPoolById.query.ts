@@ -44,7 +44,7 @@ export const GET_PANOPTIC_POOL_BY_ID_QUERY = gql`
             }
             totalVolumeUSD
             commissionsUSD
-            chunks(first: 10) {
+            chunks(first: 10, where: { netLiquidity_gt: "0" }) {
                 id
                 tickLower
                 tickUpper
@@ -54,6 +54,7 @@ export const GET_PANOPTIC_POOL_BY_ID_QUERY = gql`
                 netLiquidity
                 shortLiquidity
                 longLiquidity
+                totalLiquidity
                 shortCounts
                 longCounts
             }
