@@ -8,6 +8,7 @@ export const GET_OLDEST_PANOPTIC_POOLS_QUERY = gql`
             first: 50
         ) {
             feeTier
+            id
             token0 {
                 symbol
                 decimals
@@ -19,6 +20,7 @@ export const GET_OLDEST_PANOPTIC_POOLS_QUERY = gql`
             underlyingPool {
                 tick
                 isV4Pool
+                poolId
             }
         }
     }
