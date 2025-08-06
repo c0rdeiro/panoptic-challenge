@@ -28,7 +28,6 @@ export default function useOldestPanopticPools() {
             ),
         })
     )
-    console.log({ data: data.panopticPools, poolsData })
 
     return { poolsData, loading }
 }

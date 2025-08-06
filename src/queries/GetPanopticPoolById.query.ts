@@ -27,6 +27,14 @@ export const GET_PANOPTIC_POOL_BY_ID_QUERY = gql`
                 inAMM
                 poolUtilization
                 totalShares
+                token
+                token {
+                    id
+                    symbol
+                    name
+                    decimals
+                    derivedETH
+                }
             }
             collateral1 {
                 id
@@ -35,15 +43,30 @@ export const GET_PANOPTIC_POOL_BY_ID_QUERY = gql`
                 inAMM
                 poolUtilization
                 totalShares
+                token {
+                    id
+                    symbol
+                    name
+                    decimals
+                    derivedETH
+                }
             }
             underlyingPool {
                 id
                 totalValueLockedUSD
                 liquidity
                 tick
+                poolDayData(first: 1) {
+                    feesUSD
+                    volumeUSD
+                }
             }
             totalVolumeUSD
             commissionsUSD
+            panopticPoolDayData(first: 1) {
+                totalVolumeUSD
+                commissionsUSD
+            }
             chunks(first: 10, where: { netLiquidity_gt: "0" }) {
                 id
                 tickLower

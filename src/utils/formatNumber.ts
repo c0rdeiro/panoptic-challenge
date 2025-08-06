@@ -30,3 +30,8 @@ export function formatLiquidity(liquidityString: string) {
         return liquidity.toFixed(2)
     }
 }
+
+export function formatTokenAmount(rawAmount: string, decimals: string) {
+    const amount = parseFloat(rawAmount) / Math.pow(10, parseInt(decimals))
+    return amount.toLocaleString(undefined, { maximumFractionDigits: 4 })
+}

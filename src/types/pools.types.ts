@@ -24,6 +24,7 @@ export type PanopticPool = {
     totalVolumeUSD: string
     commissionsUSD: string
     chunks: Chunk[]
+    panopticPoolDayData: PoolDayData[]
 }
 
 export type Token = {
@@ -41,6 +42,7 @@ export type Collateral = {
     inAMM: string
     poolUtilization: string
     totalShares: string
+    token: Token
 }
 
 export type UnderlyingPool = {
@@ -48,6 +50,7 @@ export type UnderlyingPool = {
     totalValueLockedUSD: string
     liquidity: string
     tick: string | null //may be null if pool not initialized
+    poolDayData: PoolDayData[]
 }
 
 export type Chunk = {
@@ -63,6 +66,12 @@ export type Chunk = {
     totalLiquidity: string
     shortCounts: string
     longCounts: string
+}
+
+export type PoolDayData = {
+    date: string
+    totalVolumeUSD: string
+    commissionsUSD: string
 }
 
 export type Bundle = {

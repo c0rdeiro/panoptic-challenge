@@ -5,7 +5,6 @@ export default function calculateDelta(
     currentTick: number
 ): number {
     const isCall = chunk.tokenType === '0'
-    const strike = parseInt(chunk.strike)
     const tickLower = parseInt(chunk.tickLower)
     const tickUpper = parseInt(chunk.tickUpper)
 

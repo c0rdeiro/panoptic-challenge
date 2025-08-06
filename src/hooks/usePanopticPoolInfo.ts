@@ -16,7 +16,6 @@ export default function usePanopticPoolInfo(poolId: string) {
                 skip: !poolId,
             }
         )
-    console.log('usePanopticPoolInfo', { poolId, data, error, loading })
     return {
         poolInfo: data?.panopticPool,
         ethPriceUSD: data?.bundle?.ethPriceUSD,
