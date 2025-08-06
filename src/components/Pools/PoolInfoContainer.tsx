@@ -117,13 +117,13 @@ const PoolInfoContainer: React.FC<PoolInfoContainerProps> = ({ poolId }) => {
                     <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4 backdrop-blur">
                         <p className="mb-1 text-xs text-gray-400">Volume 24h</p>
                         <p className="text-xl font-semibold">
-                            {formatUSD(panopticPoolDayData[0].totalVolumeUSD)}
+                            {formatUSD(panopticPoolDayData[0]?.totalVolumeUSD)}
                         </p>
                     </div>
                     <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4 backdrop-blur">
                         <p className="mb-1 text-xs text-gray-400">Fees 24h</p>
                         <p className="text-xl font-semibold">
-                            {formatUSD(panopticPoolDayData[0].commissionsUSD)}
+                            {formatUSD(panopticPoolDayData[0]?.commissionsUSD)}
                         </p>
                     </div>
                     <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-4 backdrop-blur">
@@ -140,7 +140,7 @@ const PoolInfoContainer: React.FC<PoolInfoContainerProps> = ({ poolId }) => {
                         </p>
                         <p className="text-xl font-semibold">
                             {formatUSD(
-                                underlyingPool.poolDayData[0].totalVolumeUSD
+                                underlyingPool.poolDayData[0]?.totalVolumeUSD
                             )}
                         </p>
                     </div>
@@ -150,7 +150,7 @@ const PoolInfoContainer: React.FC<PoolInfoContainerProps> = ({ poolId }) => {
                         </p>
                         <p className="text-xl font-semibold">
                             {formatUSD(
-                                underlyingPool.poolDayData[0].commissionsUSD
+                                underlyingPool.poolDayData[0]?.commissionsUSD
                             )}
                         </p>
                     </div>
